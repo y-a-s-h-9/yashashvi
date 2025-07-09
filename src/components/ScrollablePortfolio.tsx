@@ -245,7 +245,7 @@ const ScrollablePortfolio = () => {
               <h1 className={`text-8xl md:text-9xl font-thin tracking-tighter ${
                 isDarkMode ? 'text-white' : 'text-black'
               }`}>
-                {'Yashashvi'.split('').map((char, index) => (
+                {'Yashashvi B'.split('').map((char, index) => (
                   <span 
                     key={index}
                     className="inline-block transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1"
