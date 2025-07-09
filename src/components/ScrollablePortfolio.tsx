@@ -16,7 +16,8 @@ import {
   Sun,
   Moon,
   Check,
-  X
+  X,
+  FileText
 
 } from 'lucide-react';
 
@@ -63,7 +64,23 @@ const ScrollablePortfolio = () => {
   const MessageEvent = new Event('messageSent');
   const [messageSent, setMessageSent] = useState<true | false | null>(null);
 
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
+   useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prev) => (prev + 1) % footerMessages.length);
+    }, 4000); // Rotate every 4 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+
+const footerMessages = [
+  "Thanks for visiting — stay curious.",
+  "You made it to the footer. Respect.",
+  "Simple code. Honest intent.",
+  "Let’s build something impactful.",
+  "404 talent not found? Try my inbox."
+];
   const techRoles = [
     'Software Engineering',
     'System Architecture', 
@@ -300,8 +317,10 @@ const ScrollablePortfolio = () => {
                 }`}></span>
                 
                 {/* Prominent Resume Button */}
-               <a 
-  // Add your href or other attributes here if needed
+            <a 
+  href="https://drive.google.com/file/d/1VH2Q2x-MvEp0mVcw8SCKh1ZLz7r4GZ4M/view?usp=sharing"
+  target="_blank" 
+  rel="noopener noreferrer"
 >
   <button className={`px-4 py-2 text-xs font-medium tracking-wide transition-all duration-300 rounded-full relative overflow-hidden group ${
     isDarkMode 
@@ -314,7 +333,7 @@ const ScrollablePortfolio = () => {
         : 'bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100'
     }`}></div>
     <div className="relative flex items-center gap-2">
-      <Download className="w-3 h-3 group-hover:animate-bounce" />
+      <FileText className="w-3 h-3 group-hover:animate-bounce" />
       Resume
     </div>
   </button>
@@ -346,6 +365,7 @@ const ScrollablePortfolio = () => {
              
             </div>
           </div>
+
         </section>
 
         {/* About Section - Smooth reveal */}
@@ -1025,19 +1045,48 @@ const ScrollablePortfolio = () => {
       </main>
 
       {/* Animated footer */}
-      <footer className={`border-t py-8 px-8 transition-all duration-500 ${
-        isDarkMode 
-          ? 'border-neutral-700 hover:bg-neutral-800' 
+      <footer
+      className={`border-t py-8 px-8 transition-all duration-500 ${
+        isDarkMode
+          ? 'border-neutral-700 hover:bg-neutral-800'
           : 'border-neutral-200 hover:bg-neutral-50'
-      }`}>
-        <div className={`max-w-5xl mx-auto flex items-center justify-between text-xs ${
+      }`}
+    >
+      <div
+        className={`max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs space-y-2 md:space-y-0 ${
           isDarkMode ? 'text-neutral-500' : 'text-neutral-400'
-        }`}>
-          <div className={`transition-colors duration-300 ${
+        }`}
+      >
+        {/* Left */}
+        <div
+          className={`transition-colors duration-300 ${
             isDarkMode ? 'hover:text-white' : 'hover:text-black'
-          }`}> Yashashvi B</div>
-          <div className="flex items-center gap-4">
-           <a
+          }`}
+        >
+          Yashashvi B
+        </div>
+
+        {/* Middle: Rotating Message */}
+        <div className="relative h-6 overflow-hidden text-sm tracking-tight text-center w-full max-w-sm">
+          <div className="absolute inset-0 flex items-center justify-center">
+            {footerMessages.map((msg, index) => (
+              <span
+                key={msg}
+                className={`absolute transition-all duration-500 ease-in-out ${
+                  index === currentMessageIndex
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-2'
+                }`}
+              >
+                {msg}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Right: Resume Button */}
+        <div className="flex items-center gap-4">
+        <a
   href="https://drive.google.com/file/d/1VH2Q2x-MvEp0mVcw8SCKh1ZLz7r4GZ4M/view?usp=sharing"
   target="_blank"
   rel="noopener noreferrer"
@@ -1045,16 +1094,15 @@ const ScrollablePortfolio = () => {
     isDarkMode ? 'hover:text-white' : 'hover:text-black'
   }`}
 >
-  <button
-    className="flex items-center gap-1 text-sm group focus:outline-none"
-  >
-    <Download className="w-3 h-3 group-hover:animate-bounce" />
+  <button className="flex items-center gap-1 text-sm group focus:outline-none">
+    <FileText className="w-3 h-3 group-hover:animate-bounce" />
     Resume
   </button>
 </a>
-          </div>
         </div>
-      </footer>
+      </div>
+    </footer>
+
     </div>
   );
 };
