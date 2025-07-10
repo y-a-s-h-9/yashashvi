@@ -78,18 +78,21 @@ const ScrollablePortfolio = () => {
 
 const greetings = [
   // 🇮🇳 Indian Languages
-
+   "Hello, I'm",         // English
   "నమస్తే, నేను",       // Telugu — "Namaste, nēnu"
+   "Hola, soy",            // Spanish
   "வணக்கம், நான்",      // Tamil — "Vanakkam, nān"
-  "नमस्ते, मैं हूँ",     // Hindi — "Namaste, main hoon"
-  "ನಮಸ್ಕಾರ, ನಾನು",     // Kannada — "Namaskāra, nānu"
-
-  // 🌍 Foreign Languages
-  "Hello, I'm",         // English
-  "Hola, soy",            // Spanish
-  "Ciao, sono",           // Italian
+   "Ciao, sono",           // Italian
+  "नमस्ते, मैं हूँ",     // Hindi — "Namaste, main hoon
   "こんにちは、私は",        // Japanese — "Konnichiwa, watashi wa"
-  "안녕하세요, 저는",         // Korean — "Annyeonghaseyo, jeoneun"
+  "ನಮಸ್ಕಾರ, ನಾನು",     // Kannada — "Namaskāra, nānu"
+   "안녕하세요, 저는",         // Korean — "Annyeonghaseyo, jeoneun"
+
+ 
+ 
+  
+ 
+ 
 ];
 const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
 useEffect(() => {
