@@ -5,6 +5,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import folioImage from './asserts/folio.jpg';
+
+
 import { 
   Github,
   Linkedin,
@@ -73,6 +76,28 @@ const ScrollablePortfolio = () => {
     return () => clearInterval(interval);
   }, []);
 
+const greetings = [
+  // 🇮🇳 Indian Languages
+
+  "నమస్తే, నేను",       // Telugu — "Namaste, nēnu"
+  "வணக்கம், நான்",      // Tamil — "Vanakkam, nān"
+  "नमस्ते, मैं हूँ",     // Hindi — "Namaste, main hoon"
+  "ನಮಸ್ಕಾರ, ನಾನು",     // Kannada — "Namaskāra, nānu"
+
+  // 🌍 Foreign Languages
+  "Hello, I'm",         // English
+  "Hola, soy",            // Spanish
+  "Ciao, sono",           // Italian
+  "こんにちは、私は",        // Japanese — "Konnichiwa, watashi wa"
+  "안녕하세요, 저는",         // Korean — "Annyeonghaseyo, jeoneun"
+];
+const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentGreetingIndex((prev) => (prev + 1) % greetings.length);
+  }, 3000); // change every 3 seconds
+  return () => clearInterval(interval);
+}, []);
 
 const footerMessages = [
   "Thanks for visiting — stay curious.",
@@ -251,32 +276,45 @@ const footerMessages = [
           }`}
         >
           <div className="text-center space-y-12">
-            <div className="space-y-6">
-              {/* Animated line that grows */}
-              {/* <div className={`w-1 mx-auto transition-all duration-1000 ease-out delay-300 ${
-                isDarkMode ? 'bg-white' : 'bg-black'
-              }`}
-                   style={{ height: isVisible.hero ? '64px' : '0px' }}></div> */}
-              
-              {/* Name with staggered letter animation */}
-              <h1 className={`text-8xl md:text-9xl font-thin tracking-tighter ${
-                isDarkMode ? 'text-white' : 'text-black'
-              }`}>
-                {'Yashashvi B'.split('').map((char, index) => (
-                  <span 
-                    key={index}
-                    className="inline-block transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1"
-                    style={{ 
-                      animationDelay: `${index * 100}ms`,
-                      transform: isVisible.hero ? 'translateY(0)' : 'translateY(20px)',
-                      opacity: isVisible.hero ? 1 : 0
-                    }}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </span>
-                ))}
-              </h1>
-              
+  <div className="space-y-6">
+    
+    {/* Greeting line above name */}
+    <h2 className={`text-3xl font-light tracking-wide min-h-[2rem] transition-all duration-700 ease-in-out ${
+  isDarkMode ? 'text-neutral-300' : 'text-neutral-700'
+    }`}>
+      {greetings[currentGreetingIndex]}
+    </h2>
+
+    {/* Name and phonetic together */}
+    <div className="relative inline-block">
+      <h1 className={`text-8xl md:text-9xl font-thin tracking-tighter ${
+        isDarkMode ? 'text-white' : 'text-black'
+      }`}>
+        {'Yashashvi B'.split('').map((char, index) => (
+          <span 
+            key={index}
+            className="inline-block transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1"
+            style={{ 
+              animationDelay: `${index * 100}ms`,
+              transform: isVisible.hero ? 'translateY(0)' : 'translateY(20px)',
+              opacity: isVisible.hero ? 1 : 0
+            }}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        ))}
+      </h1>
+
+      {/* Phonetic spelling aligned to bottom-right of name */}
+      <p className={`absolute -bottom-4 right-0 text-xs md:text-sm font-light italic ${
+        isDarkMode ? 'text-neutral-400' : 'text-neutral-600'
+      }`}>
+        [ yʌ-ʃʌʃ-viː biː ]
+      </p>
+    </div>
+
+
+  
               {/* Dynamic role animation */}
               <div className={`text-sm tracking-[0.4em] uppercase transition-all duration-700 delay-500 relative h-6 ${
                 isDarkMode ? 'text-neutral-400' : 'text-neutral-500'
@@ -400,9 +438,9 @@ const footerMessages = [
             }`}
           >
             <img
-              src="/your-image.jpg"
+              src={folioImage}
               alt="Profile"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover [object-position:40%_30%] "
             />
           </div>
           <div
