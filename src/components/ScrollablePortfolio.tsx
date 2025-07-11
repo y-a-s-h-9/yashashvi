@@ -109,10 +109,6 @@ const greetings = [
    "안녕하세요, 저는",         // Korean — "Annyeonghaseyo, jeoneun"
 
  
- 
-  
- 
- 
 ];
 const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
 
@@ -230,6 +226,15 @@ const footerMessages = [
       image: p3,
       link: "https://github.com/y-a-s-h-9/Email-sms_Phish_detector"
     },
+     {
+      title: 'ChatBot_with_Amazon_Lex',
+      year: '2024',
+      description: 'Built a smart voice/text chatbot using Amazon Lex and AWS Lambda.',
+      tech: 'AWS Lex • Lambda • Python • API Gateway',
+      impact: '99.9% uptime',
+      image: p6,
+      link: "https://github.com/y-a-s-h-9/ChatBot_with_Amazon_Lex"
+    },
     {
       title: 'Tic Tac Toe Game – Flutter Project',
       year: '2023',
@@ -247,17 +252,9 @@ const footerMessages = [
       impact: '99.9% uptime',
       image: p5,
       link: "https://github.com/y-a-s-h-9/Django-FHS-Project"
-    },
-   
-    {
-      title: 'ChatBot_with_Amazon_Lex',
-      year: '2024',
-      description: 'Built a smart voice/text chatbot using Amazon Lex and AWS Lambda.',
-      tech: 'AWS Lex • Lambda • Python • API Gateway',
-      impact: '99.9% uptime',
-      image: p6,
-      link: "https://github.com/y-a-s-h-9/ChatBot_with_Amazon_Lex"
     }
+   
+   
     
   ];
 
@@ -719,27 +716,58 @@ const footerMessages = [
     </div>
 
     {/* Skill Rows */}
-    {[{
-      title: 'Methods',
-      items: [
-        'Wireframing', 'Experience Prototyping', 'User Stories', 'Semi-structured Interviews',
-        'Affinity Diagramming', 'Storyboarding', 'User + Stakeholder Journey Mapping',
-        'Think Aloud Study', 'UML Diagramming', 'ER Modeling', 'Artifact Analysis', 'Speed Dating'
-      ]
-    }, {
-      title: 'Tools',
-      items: [
-        'Figma', 'Adobe XD', 'Sketch', 'Adobe InDesign', 'Adobe Illustrator', 'ZeroHeight',
-        'Adobe Photoshop', 'Adobe Lightroom', 'Procreate', 'Jupyter Notebook', 'Canva',
-        'Microsoft Office', 'Google Suite', 'Slack', 'Github', 'XCode'
-      ]
-    }, {
-      title: 'Technical',
-      items: [
-        'HTML/CSS', 'React', 'JavaScript', 'Swift', 'C/C++', 'Java',
-        'SQL', 'NoSQL', 'R', 'Ruby on Rails', 'Python', 'SML'
-      ]
-    }].map((section, index) => (
+    {[
+        {
+    "title": "Technical",
+    "items": [
+      "Java", "Python", "HTML/CSS", "JavaScript", "React", "Node.js",
+      "Django", "Spring Boot (Microservices)", "Flutter", "FastAPI", 
+      "SQL",  "Bash", "JSP", 
+    ]
+  },
+   {
+    "title": "Tools",
+    "items": [
+      "GitHub", "GitHub Actions", "VS Code", "AWS Console", "Terraform", "Docker",
+    "Kubernetes", "Jenkins",  "MLflow",
+     "Grafana", "Jupyter Notebook",
+    "Figma", "Adobe XD", "Canva", "Notion",
+    "Slack", "Microsoft Office"
+    ]
+  },
+  {
+    "title": "Methods",
+  "items": [
+        "Version Control",
+    "CI/CD",
+    "DevSecOps",
+    "IaC (Terraform)",
+    "Docker & Kubernetes",
+    "Monitoring & Logging",
+    "Microservices & SOA",
+    "UML & ER Modeling",
+    "System Design",
+    "Agile Development",
+    "Debugging"
+  ]
+  },
+  {
+  "title": "Soft Skills",
+  "items": [
+    "Team Leadership",
+    "Collaboration",
+    "Communication",
+    "Problem Solving",
+    "Adaptability",
+    "Time Management",
+    "User-Centric Thinking",
+    "Creativity",
+    "Decision Making"
+  ]
+}
+
+]
+.map((section, index) => (
       <div 
         key={index}
         className={`grid grid-cols-1 md:grid-cols-3 gap-6 items-start transition-all duration-700 ${
