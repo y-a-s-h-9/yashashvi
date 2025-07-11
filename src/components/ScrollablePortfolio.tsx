@@ -469,7 +469,7 @@ const footerMessages = [
     {/* About Section */}
     <div className="space-y-6">
       <div
-        className={`text-xs tracking-[0.4em] uppercase transition-all duration-700 delay-200 ${
+        className={`text-sm tracking-[0.4em] uppercase transition-all duration-700 delay-200 ${
           isDarkMode ? 'text-neutral-400' : 'text-neutral-500'
         } ${isVisible.about ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
       >
@@ -587,10 +587,10 @@ const footerMessages = [
           <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
             Bachelor of Technology in Computer Science and Engineering [2021-2025]
           </div>
-          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          <div className={`text-sm italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
             KL University, Vijayawada, India.
           </div>
-          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          <div className={`text-xs ${isDarkMode ? 'text-white' : 'text-black'}`}>
             CGPA: 9.03/10
           </div>
         </div>
@@ -598,10 +598,10 @@ const footerMessages = [
           <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
             Higher Secondary (Class 12), Science  [2019-2021]
           </div>
-          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          <div className={`text-sm italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
             Prathibha Junior College, Rajahmundry, India.
           </div>
-          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          <div className={`text-xs ${isDarkMode ? 'text-white' : 'text-black'}`}>
             Percentage: 94.4%
           </div>
         </div>
@@ -609,10 +609,10 @@ const footerMessages = [
           <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
             Secondary School Certificate (SSC – Class 10)  [2018-2019]
           </div>
-          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          <div className={`text-sm italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
             Sri Gowthami Smart School, Rajahmundry, India.
           </div>
-          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+          <div className={`text-xs ${isDarkMode ? 'text-white' : 'text-black'}`}>
             GPA: 9.3/10
           </div>
         </div>
@@ -707,7 +707,7 @@ const footerMessages = [
         style={{ height: '1px' }}
       ></div>
       <div
-        className={`text-sm tracking-[0.4em] uppercase font-bold ${
+        className={`text-sm tracking-[0.4em] uppercase font-semibold ${
           isDarkMode ? 'text-neutral-400' : 'text-neutral-500'
         }`}
       >
@@ -947,7 +947,7 @@ const footerMessages = [
           style={{ height: '1px' }}
         ></div>
         <div
-          className={`text-xs tracking-[0.4em] uppercase ${
+          className={`text-xs tracking-[0.4em] uppercase font-semibold ${
             isDarkMode ? 'text-neutral-400' : 'text-neutral-500'
           }`}
         >
@@ -1023,7 +1023,7 @@ const footerMessages = [
                       isDarkMode ? 'bg-white' : 'bg-black'
                     }`}
                          style={{ height: '1px' }}></div>
-                    <div className={`text-xs tracking-[0.4em] uppercase ${
+                    <div className={`text-xs tracking-[0.4em] uppercase font-semibold${
                       isDarkMode ? 'text-neutral-400' : 'text-neutral-500'
                     }`}>
                       Contact
