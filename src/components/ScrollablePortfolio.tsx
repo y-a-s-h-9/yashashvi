@@ -6,6 +6,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import folioImage from './asserts/folio.jpg';
+import sa from './asserts/solutions-architect.png';
+import gcp from './asserts/googlecloud-engineer-certification.png';
+import git from './asserts/github-foundations.png';
+import cp from './asserts/aws-certified-cloud.png';
+import red from './asserts/red-hat.png';
+
+
+
 
 
 import { 
@@ -26,35 +34,41 @@ import {
 
 const certificates = [
   {
-    title: 'AWS Certified Solutions Architect',
+    title: 'AWS Certified Solutions Architect – Associate',
+    year: '2024',
+    badge: sa,
+    link: 'https://www.credly.com/badges/a92fad23-0445-4bac-b0f5-7130a74a332c/public_url'
+  },
+  {
+    title: 'Associate Cloud Engineer Certification',
+    year: '2024',
+    badge: gcp,
+    link: 'https://www.credly.com/badges/e2539f29-95d9-44c0-bf19-494d2b799072/public_url'
+  },
+  {
+    title: 'GitHub Foundations',
+    year: '2024',
+    badge: git,
+    link: 'https://www.credly.com/badges/71f9bdb2-3756-41fd-9a0a-6838c722a0e4/public_url'
+  },
+  {
+    title: 'AWS Certified Cloud Practitioner',
     year: '2023',
-    badge: '/badges/aws-solutions-architect.png',
-    link: 'https://www.credly.com/badges/aws-solutions-architect'
+    badge: cp,
+    link: 'https://www.credly.com/badges/29d992d4-abff-4c7a-a8c2-7690aa40c721/public_url'
   },
   {
-    title: 'Google Cloud Professional Data Engineer',
+    title: 'Red Hat Certified Enterprise Application Developer',
     year: '2023',
-    badge: '/badges/google-data-engineer.png',
-    link: 'https://www.credential.net/google-data-engineer'
+    badge: red,
+    link: 'https://www.credly.com/badges/a91af520-ac11-47ff-aa87-9526151f11a8/public_url'
   },
   {
-    title: 'Certified Kubernetes Administrator',
-    year: '2022',
-    badge: '/badges/kubernetes-admin.png',
-    link: 'https://training.linuxfoundation.org/certification/cka/'
-  },
-  {
-    title: 'Certified Ethical Hacker',
-    year: '2022',
-    badge: '/badges/ceh.png',
-    link: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/'
-  },
-  {
-    title: 'Certified Ethical Hacker',
-    year: '2022',
-    badge: '/badges/ceh.png',
-    link: 'https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/'
-  },
+    title: 'Automation Anywhere Certified Essentials RPA Professional (Automation 360)',
+    year: '2024',
+    badge: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/107460015',
+    link: 'https://certificates.automationanywhere.com/cb30b334-e67e-449c-9df6-91fae573a3c1#acc.2iTbvGfN'
+  }
 ];
 const ScrollablePortfolio = () => {
   const [time, setTime] = useState(new Date());
@@ -98,7 +112,7 @@ const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
 useEffect(() => {
   const interval = setInterval(() => {
     setCurrentGreetingIndex((prev) => (prev + 1) % greetings.length);
-  }, 3000); // change every 3 seconds
+  }, 1500); // change every 3 seconds
   return () => clearInterval(interval);
 }, []);
 
@@ -282,8 +296,8 @@ const footerMessages = [
   <div className="space-y-6">
     
     {/* Greeting line above name */}
-    <h2 className={`text-3xl font-light tracking-wide min-h-[2rem] transition-all duration-700 ease-in-out ${
-  isDarkMode ? 'text-neutral-300' : 'text-neutral-700'
+    <h2 className={`text-3xl font-light tracking-wide min-h-[2rem] transition-all  ${
+  isDarkMode ? 'text-white' : 'text-black'
     }`}>
       {greetings[currentGreetingIndex]}
     </h2>
@@ -826,68 +840,50 @@ const footerMessages = [
     </div>
 
     {/* Certificates Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {certificates.map((cert, index) => (
-        <a
-          key={index}
-          href={cert.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
+   <div className="grid grid-cols-1 grid-cols-2 lg:grid-cols-3 gap-6">
+  {certificates.map((cert, index) => (
+    <a
+      key={index}
+      href={cert.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block"
+    >
+      <div
+        className={`group aspect-square transition-all duration-700 ease-out hover:scale-105 ${
+          isVisible.certificates ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
+        style={{ transitionDelay: `${300 + index * 100}ms` }}
+      >
+        <div
+          className={`relative w-full h-full max-w-[120x] max-h-[120x] border rounded-2xl overflow-hidden flex items-center justify-center hover:shadow-lg transition-all duration-500 hover:-translate-y-2 mx-auto ${
+    isDarkMode
+      ? 'border-neutral-700 hover:border-white bg-neutral-800 hover:bg-neutral-750'
+      : 'border-neutral-200 hover:border-black bg-white hover:bg-neutral-50'
+  }`}
+
         >
+          {/* Badge Image */}
+          <img
+            src={cert.badge}
+            
+            className="max-h-[80%] max-w-[80%] object-contain transition-opacity duration-300"
+          />
+
+          {/* Hover Overlay with Title - Theme Aware */}
           <div
-            className={`group aspect-square transition-all duration-700 ease-out hover:scale-105 ${
-              isVisible.certificates ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-            style={{ transitionDelay: `${300 + index * 100}ms` }}
+           className={`absolute inset-0 flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
+    isDarkMode ? 'bg-white/10 text-neutral-200' : 'bg-black/30 text-white'
+  }`}
           >
-            <div
-              className={`w-full h-full border rounded-lg overflow-hidden flex flex-col hover:shadow-lg transition-all duration-500 hover:-translate-y-2 ${
-                isDarkMode
-                  ? 'border-neutral-700 hover:border-white bg-neutral-800 hover:bg-neutral-750'
-                  : 'border-neutral-200 hover:border-black bg-white hover:bg-neutral-50'
-              }`}
-            >
-              {/* Badge + Hover Overlay */}
-              <div className="h-1/2 w-full relative flex items-center justify-center overflow-hidden p-4">
-                <img
-                  src={cert.badge}
-                  alt={`${cert.title} badge`}
-                  className="max-h-full max-w-full object-contain transition-opacity duration-300"
-                />
-
-                {/* Hover Overlay */}
-                {/* <div className="absolute inset-0 bg-black/60 dark:bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-xs text-white dark:text-neutral-200 px-2 text-center">
-                    {cert.title}
-                  </span>
-                </div> */}
-              </div>
-
-              {/* Bottom Info */}
-              {/* <div className="h-1/2 p-4 flex flex-col justify-center text-center">
-                <h3
-                  className={`text-sm font-medium mb-2 transition-colors duration-300 ${
-                    isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'
-                  }`}
-                >
-                  {cert.title}
-                </h3>
-                <span
-                  className={`text-xs text-neutral-500 transition-colors duration-300 ${
-                    isDarkMode
-                      ? 'group-hover:text-neutral-300'
-                      : 'group-hover:text-neutral-600'
-                  }`}
-                >
-                  {cert.year}
-                </span>
-              </div> */}
-            </div>
+            <span className="text-sm font-medium text-center px-4">{cert.title}</span>
           </div>
-        </a>
-      ))}
-    </div>
+        </div>
+      </div>
+    </a>
+  ))}
+</div>
+
   </div>
 </section>
 
