@@ -11,6 +11,12 @@ import gcp from './asserts/googlecloud-engineer-certification.png';
 import git from './asserts/github-foundations.png';
 import cp from './asserts/aws-certified-cloud.png';
 import red from './asserts/red-hat.png';
+import p1 from './asserts/p1.png';
+import p2 from './asserts/p2.png';
+import p3 from './asserts/p3.png';
+import p4 from './asserts/p4.png';
+import p5 from './asserts/p5.png';
+import p6 from './asserts/p6.png';
 
 
 
@@ -109,10 +115,11 @@ const greetings = [
  
 ];
 const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
+
 useEffect(() => {
   const interval = setInterval(() => {
     setCurrentGreetingIndex((prev) => (prev + 1) % greetings.length);
-  }, 1500); // change every 3 seconds
+  }, 1500);
   return () => clearInterval(interval);
 }, []);
 
@@ -124,19 +131,25 @@ const footerMessages = [
   "404 talent not found? Try my inbox."
 ];
   const techRoles = [
-    'Software Engineering',
-    'System Architecture', 
-    'Cloud Infrastructure',
-    'Full-Stack Development',
-    'DevOps Engineering',
-    'Machine Learning'
-  ];
+  'University Graduate-2025',
+
+  'Software Engineering',
+
+  'Full-Stack Web Development',
+  'DevOps & Cloud Infrastructure',
+  'Software Modelling',
+  'System Architecture (Beginner)',
+  'CI/CD & Automation',
+  'UI/UX Design',
+  'Machine Learning (Exploring)'
+]
+
 
   // Cycle through tech roles
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRoleIndex((prev) => (prev + 1) % techRoles.length);
-    }, 2500);
+    }, 1500);
     return () => clearInterval(interval);
   }, []);
 
@@ -189,53 +202,61 @@ const footerMessages = [
   }, []);
 
   const projects = [
+    
     {
-      title: 'Distributed Analytics Engine',
-      year: '2024',
-      description: 'Real-time processing of 10M+ events/second',
-      tech: 'Go • Kafka • ClickHouse',
-      impact: '60% faster queries',
-      image: "/asserts/folio.jpg"
-    },
-    {
-      title: 'AI Code Assistant',
-      year: '2023', 
-      description: 'ML platform for intelligent code review',
-      tech: 'Python • TensorFlow • React',
+      title: 'Iris Classification – MLOps Pipeline',
+      year: '2025', 
+      description: 'MLOps pipeline for Iris classification with CI/CD and Docker.',
+      tech: 'Python • MLFlow • Docker • GitHub Actions',
       impact: '40% productivity gain',
-      image: "/asserts/folio.jpg"
+      image: p1,
+      link: "https://github.com/y-a-s-h-9/iris-mlops"
     },
     {
-      title: 'Microservices Platform',
-      year: '2023',
-      description: 'Cloud architecture serving 2M+ users',
-      tech: 'Node.js • Docker • AWS',
+      title: 'AWS S3 Bucket Automation with Terraform',
+      year: '2024',
+      description: 'Automated S3 bucket setup with Terraform scripts.',
+      tech: 'Terraform • AWS S3 • IaC',
+      impact: '60% faster queries',
+      image: p2,
+      link: "https://github.com/y-a-s-h-9/terraform_s3_bucket"
+    },
+     {
+      title: 'Email & SMS Phishing Detector',
+      year: '2024',
+      description: 'Built with a team: a smart detector for phishing in SMS and email using NLP and ML.',
+      tech: 'Python • Scikit-learn • Pandas • Flask',
       impact: '99.9% uptime',
-      image: "/asserts/folio.jpg"
+      image: p3,
+      link: "https://github.com/y-a-s-h-9/Email-sms_Phish_detector"
     },
     {
-      title: 'Microservices Platform',
+      title: 'Tic Tac Toe Game – Flutter Project',
       year: '2023',
-      description: 'Cloud architecture serving 2M+ users',
-      tech: 'Node.js • Docker • AWS',
-      impact: '99.9% uptime',
-      image: "/asserts/folio.jpg"
+      description: 'Minimal Tic Tac Toe app built in Flutter.',
+      tech: 'Flutter • Dart • Android SDK',
+      impact: 'Built using clean UI and game logic.',
+      image: p4,
+      link: "https://github.com/y-a-s-h-9/Flutter_Project"
     },
     {
-      title: 'Microservices Platform',
-      year: '2023',
-      description: 'Cloud architecture serving 2M+ users',
-      tech: 'Node.js • Docker • AWS',
+      title: 'Food and Hospitality System',
+      year: '2022',
+      description: 'Django app to manage faculty records, feedback, and admin taskss',
+      tech: 'Django • Python • MySQL • HTML/CSS',
       impact: '99.9% uptime',
-      image: "/asserts/folio.jpg"
+      image: p5,
+      link: "https://github.com/y-a-s-h-9/Django-FHS-Project"
     },
+   
     {
-      title: 'Microservices Platform',
-      year: '2023',
-      description: 'Cloud architecture serving 2M+ users',
-      tech: 'Node.js • Docker • AWS',
+      title: 'ChatBot_with_Amazon_Lex',
+      year: '2024',
+      description: 'Built a smart voice/text chatbot using Amazon Lex and AWS Lambda.',
+      tech: 'AWS Lex • Lambda • Python • API Gateway',
       impact: '99.9% uptime',
-      image: "/asserts/folio.jpg"
+      image: p6,
+      link: "https://github.com/y-a-s-h-9/ChatBot_with_Amazon_Lex"
     }
     
   ];
@@ -296,12 +317,28 @@ const footerMessages = [
   <div className="space-y-6">
     
     {/* Greeting line above name */}
-    <h2 className={`text-3xl font-light tracking-wide min-h-[2rem] transition-all  ${
-  isDarkMode ? 'text-white' : 'text-black'
-    }`}>
-      {greetings[currentGreetingIndex]}
-    </h2>
-
+  <div className="relative flex justify-center min-h-[2rem] h-8">
+  <h2
+    className={`text-3xl font-light tracking-wide transition-all duration-700 ease-in-out ${
+      isDarkMode ? 'text-white' : 'text-black'
+    }`}
+  >
+    <div className="absolute inset-0 flex items-center justify-center">
+      {greetings.map((greeting, index) => (
+        <span
+          key={index}
+          className={`absolute transition-all duration-700 ease-in-out ${
+            index === currentGreetingIndex
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-4'
+          }`}
+        >
+          {greeting}
+        </span>
+      ))}
+    </div>
+  </h2>
+</div>
     {/* Name and phonetic together */}
     <div className="relative inline-block">
       <h1 className={`text-8xl md:text-9xl font-thin tracking-tighter ${
@@ -333,7 +370,7 @@ const footerMessages = [
 
   
               {/* Dynamic role animation */}
-              <div className={`text-sm tracking-[0.4em] uppercase transition-all duration-700 delay-500 relative h-6 ${
+              <div className={`text-sm tracking-[0.4em] uppercase transition-all duration-700 delay-500 relative h-8 ${
                 isDarkMode ? 'text-neutral-400' : 'text-neutral-500'
               } ${
                 isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -355,11 +392,11 @@ const footerMessages = [
               </div>
             </div>
             
-            <div className={`max-w-sm mx-auto text-neutral-600 text-center leading-relaxed transition-all duration-700 delay-700 ${
+            {/* <div className={`max-w-sm mx-auto text-neutral-600 text-center leading-relaxed transition-all duration-700 delay-700 ${
               isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}>
               Building distributed systems that scale to millions of users
-            </div>
+            </div> */}
 
             <div className={`flex items-center justify-center gap-8 text-xs transition-all duration-700 delay-900 ${
               isDarkMode ? 'text-neutral-400' : 'text-neutral-400'
@@ -473,69 +510,113 @@ const footerMessages = [
             isDarkMode ? 'text-neutral-300' : 'text-neutral-600'
           } ${isVisible.about ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
-          <p className="mb-2">
-            Hi, I’m Yashashvi B. I’m a B.Tech Computer Science and Engineering Undergrad’25 from KL University...
-          </p>
-          <p>
-            I also stay active on campus as a tech club lead and part of KL Radio’s design team. I’m now looking for exciting tech opportunities where I can learn and contribute.
-          </p>
+      
+           <p className="mb-4">
+  Hey! <strong>I’m Yashashvi B.</strong>, a recent <strong>Computer Science graduate</strong> from <strong>KL University</strong>, with a passion for building impactful tech. My core focus lies in <strong>Software Modelling and DevOps</strong>, where I’ve worked on architecting scalable systems and streamlining development workflows.
+</p>
+
+<p className="mb-4">
+  I’ve built full-stack web apps using <strong>React</strong>, <strong>Django</strong>, and <strong>Spring Boot</strong>, and deployed microservices on <strong>AWS</strong>. I’m also into DevOps—comfortable with tools like <strong>Jenkins</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, and <strong>Terraform</strong>—and I automate workflows using <strong>Selenium</strong> and <strong>Bash</strong>.
+</p>
+
+<p className="mb-4">
+  Beyond code, I enjoy UI/UX design and bring ideas to life using <strong>Figma</strong>, <strong>Adobe XD</strong>, and <strong>Canva</strong>. From <strong>CI/CD pipelines</strong> to <strong>MERN stack</strong> portals, I’ve built a variety of projects and actively led <strong>tech initiatives</strong> on campus as a <strong>club lead</strong> and part of <strong>KL Radio’s design team</strong>. I'm now excited to take on new challenges and contribute to innovative teams!
+</p>
+
+
         </div>
       </div>
     </div>
  {/* Experience Section */}
     <div>
-      <div className={`text-xs tracking-[0.4em] uppercase mb-4 ${
+      <div className={`text-sm tracking-[0.4em] uppercase mb-4 ${
         isDarkMode ? 'text-neutral-400' : 'text-neutral-500'
       }`}>
         Experience
       </div>
       <div className="space-y-4">
-        {[
-          { role: 'Senior Engineer', company: 'TechCorp', year: '2022' },
-          { role: 'SWE Intern', company: 'Meta', year: '2021' },
-          { role: 'Full-Stack Dev', company: 'StartupXYZ', year: '2020' }
-        ].map((job, index) => (
-          <div key={index} className="group">
-            <div className={`flex justify-between py-2 border-b ${
-              isDarkMode ? 'border-neutral-700' : 'border-neutral-200'
-            }`}>
-              <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
-                {job.role}
-              </div>
-              <div className={`text-xs ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600'}`}>
-                {job.year}
-              </div>
-            </div>
-            <div className={`text-xs mt-1 ${isDarkMode ? 'text-neutral-500' : 'text-neutral-700'}`}>
-              {job.company}
-            </div>
-          </div>
-        ))}
+  {[
+    {
+      role: 'Tech Lead',
+      company: 'Intel Innovation Tech Club',
+      year: '2023-2024',
+      description: 'Guided a tech club team to deliver Intel Processor workshops, empowering 200+ students with hands-on learning.'
+    },
+    {
+      role: 'Design Lead and Creative Member',
+      company: 'KL Radio',
+      year: '2021-2023',
+      description: 'Led design efforts and team coordination at KL Radio, with a high success rate in idea execution and audience engagement.'
+    },
+    {
+      role: 'Project Member',
+      company: '25th & 24th National Children Science Congress',
+      year: '2016-2018',
+      description: 'Contributed to national-level science projects focused on community impact.'
+    }
+  ].map((job, index) => (
+    <div key={index} className="group">
+      <div className={`flex justify-between py-2 border-b ${
+        isDarkMode ? 'border-neutral-700' : 'border-neutral-200'
+      }`}>
+        <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
+          {job.role}
+        </div>
+        <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-neutral-600'}`}>
+          {job.year}
+        </div>
       </div>
+      <div className={`text-sm mt-1 italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
+        {job.company}
+      </div>
+      <div className={`text-xs mt-0.5  ${isDarkMode ? 'text-neutral-300' : 'text-neutral-600'}`}>
+        {job.description}
+      </div>
+    </div>
+  ))}
+</div>
+
     </div>
 
     {/* Education Section */}
     <div>
-      <div className={`text-xs tracking-[0.4em] uppercase mb-4 ${
+      <div className={`text-sm tracking-[0.4em] uppercase mb-4 ${
         isDarkMode ? 'text-neutral-400' : 'text-neutral-500'
       }`}>
         Education
       </div>
       <div className="space-y-4">
         <div className="group">
-          <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
-            MS Computer Science
+          <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
+            Bachelor of Technology in Computer Science and Engineering [2021-2025]
           </div>
-          <div className={`text-xs ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600'}`}>
-            Stanford University
+          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+            KL University, Vijayawada, India.
+          </div>
+          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+            CGPA: 9.03/10
           </div>
         </div>
         <div className="group">
-          <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
-            BS Computer Engineering
+          <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
+            Higher Secondary (Class 12), Science  [2019-2021]
           </div>
-          <div className={`text-xs ${isDarkMode ? 'text-neutral-500' : 'text-neutral-600'}`}>
-            UC Berkeley
+          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+            Prathibha Junior College, Rajahmundry, India.
+          </div>
+          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+            Percentage: 94.4%
+          </div>
+        </div>
+        <div className="group">
+          <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
+            Secondary School Certificate (SSC – Class 10)  [2018-2019]
+          </div>
+          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+            Sri Gowthami Smart School, Rajahmundry, India.
+          </div>
+          <div className={`text-sm ${isDarkMode ? 'text-white' : 'text-black'}`}>
+            GPA: 9.3/10
           </div>
         </div>
       </div>
@@ -721,72 +802,80 @@ const footerMessages = [
       </div>
 
       {/* Project Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div 
-            key={index} 
-            className={`group cursor-pointer transition-all duration-700 ease-out hover:scale-105 ${
-              isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-            style={{ transitionDelay: `${400 + index * 200}ms` }}
-          >
-            <div className={`border p-0 h-80 md:h-96 flex flex-col justify-between hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden ${
-  isDarkMode 
-    ? 'border-neutral-700 hover:border-white bg-neutral-800 hover:bg-neutral-750' 
-    : 'border-neutral-200 hover:border-black bg-white hover:bg-neutral-50'
-}`}>
-              {/* Project Image */}
-              <div className="h-1/2 w-full overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                />
-              </div>
+     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {projects.map((project, index) => (
+    <div 
+      key={index} 
+      className={`group cursor-pointer transition-all duration-700 ease-out hover:scale-105 ${
+        isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+      style={{ transitionDelay: `${400 + index * 200}ms` }}
+    >
+      <a 
+        href={project.link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block h-full"
+      >
+        <div className={`border p-0 h-80 md:h-96 flex flex-col justify-between hover:shadow-lg transition-all duration-500 hover:-translate-y-2 overflow-hidden ${
+          isDarkMode 
+            ? 'border-neutral-700 hover:border-white bg-neutral-800 hover:bg-neutral-750' 
+            : 'border-neutral-200 hover:border-black bg-white hover:bg-neutral-50'
+        }`}>
+          {/* Project Image */}
+          <div className="h-1/2 w-full overflow-hidden">
+            <img 
+              src={project.image} 
+              alt={project.title} 
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+            />
+          </div>
 
-              {/* Project Info */}
-              <div className="h-1/2 p-4 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-start justify-between">
-                    <div className={`text-xs transition-colors duration-300 ${
-                      isDarkMode 
-                        ? 'text-neutral-500 group-hover:text-neutral-300' 
-                        : 'text-neutral-400 group-hover:text-neutral-600'
-                    }`}>{project.year}</div>
-                    <ArrowUpRight className={`w-4 h-4 group-hover:scale-110 transition-all duration-300 ${
-                      isDarkMode 
-                        ? 'text-neutral-600 group-hover:text-white' 
-                        : 'text-neutral-300 group-hover:text-black'
-                    }`} />
-                  </div>
-                  <div>
-                    <h3 className={`text-lg font-light mb-1 transition-colors duration-300 ${
-                      isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'
-                    }`}>{project.title}</h3>
-                    <p className={`text-sm leading-relaxed transition-colors duration-300 ${
-                      isDarkMode 
-                        ? 'text-neutral-300 group-hover:text-white' 
-                        : 'text-neutral-600 group-hover:text-neutral-800'
-                    }`}>
-                      {project.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="space-y-1 mt-2">
-                  <div className={`text-xs transition-colors duration-300 ${
-                    isDarkMode 
-                      ? 'text-neutral-500 group-hover:text-neutral-300' 
-                      : 'text-neutral-400 group-hover:text-neutral-600'
-                  }`}>{project.tech}</div>
-                  <div className={`text-xs font-medium transition-colors duration-300 ${
-                    isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'
-                  }`}>{project.impact}</div>
-                </div>
+          {/* Project Info */}
+          <div className="h-1/2 p-4 flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-start justify-between">
+                <div className={`text-xs transition-colors duration-300 ${
+                  isDarkMode 
+                    ? 'text-neutral-500 group-hover:text-neutral-300' 
+                    : 'text-neutral-400 group-hover:text-neutral-600'
+                }`}>{project.year}</div>
+                <ArrowUpRight className={`w-4 h-4 group-hover:scale-110 transition-all duration-300 ${
+                  isDarkMode 
+                    ? 'text-neutral-600 group-hover:text-white' 
+                    : 'text-neutral-300 group-hover:text-black'
+                }`} />
+              </div>
+              <div>
+                <h3 className={`text-lg font-light mb-1 transition-colors duration-300 ${
+                  isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'
+                }`}>{project.title}</h3>
+                <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                  isDarkMode 
+                    ? 'text-neutral-300 group-hover:text-white' 
+                    : 'text-neutral-600 group-hover:text-neutral-800'
+                }`}>
+                  {project.description}
+                </p>
               </div>
             </div>
+            <div className="space-y-1 mt-2">
+              <div className={`text-xs transition-colors duration-300 ${
+                isDarkMode 
+                  ? 'text-neutral-500 group-hover:text-neutral-300' 
+                  : 'text-neutral-400 group-hover:text-neutral-600'
+              }`}>{project.tech}</div>
+              {/* <div className={`text-xs font-medium transition-colors duration-300 ${
+                isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'
+              }`}>{project.impact}</div> */}
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </a>
+    </div>
+  ))}
+</div>
+
 
       {/* View More Projects Button */}
       <div className="text-center mt-8">
