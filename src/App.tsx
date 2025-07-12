@@ -1,10 +1,10 @@
-import React from 'react';
-import ScrollablePortfolio from './components/ScrollablePortfolio';
+
+import Folio from './components/folio';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-black">
-      <ScrollablePortfolio />
+    <div >
+      <Folio />
     </div>
   );
 }

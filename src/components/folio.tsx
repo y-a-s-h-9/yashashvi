@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -26,9 +25,7 @@ import {
   Github,
   Linkedin,
   Mail,
-  Download,
-  ExternalLink,
-  MapPin,
+
   ArrowUpRight,
   Sun,
   Moon,
@@ -82,9 +79,9 @@ const ScrollablePortfolio = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
-  const observerRef = useRef(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
   
-  const MessageEvent = new Event('messageSent');
+  // const MessageEvent = new Event('messageSent');
   const [messageSent, setMessageSent] = useState<true | false | null>(null);
 
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
@@ -162,7 +159,7 @@ const footerMessages = [
 
   // Mouse tracking for subtle parallax effects
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: (e.clientX / window.innerWidth) * 2 - 1,
         y: (e.clientY / window.innerHeight) * 2 - 1
@@ -188,7 +185,9 @@ const footerMessages = [
     );
 
     const sections = document.querySelectorAll('section[id]');
-    sections.forEach(section => observerRef.current.observe(section));
+    if (observerRef.current) {
+      sections.forEach(section => observerRef.current!.observe(section));
+    }
 
     return () => {
       if (observerRef.current) {
