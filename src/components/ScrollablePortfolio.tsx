@@ -509,7 +509,7 @@ const footerMessages = [
         >
       
            <p className="mb-4">
-  Hey! <strong>I’m Yashashvi B.</strong>, a recent <strong>Computer Science graduate</strong> from <strong>KL University</strong>, with a passion for building impactful tech. My core focus lies in <strong>Software Modelling and DevOps</strong>, where I’ve worked on architecting scalable systems and streamlining development workflows.
+  Hey! <strong>I’m Yashashvi B</strong>, a recent <strong>Computer Science graduate</strong> from <strong>KL University</strong>, with a passion for building impactful tech. My core focus lies in <strong>Software Modelling and DevOps</strong>, where I’ve worked on architecting scalable systems and streamlining development workflows.
 </p>
 
 <p className="mb-4">
