@@ -584,7 +584,7 @@ const footerMessages = [
       </div>
       <div className="space-y-4">
         <div className="group">
-          <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
+          <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
             Bachelor of Technology in Computer Science and Engineering [2021-2025]
           </div>
           <div className={`text-sm italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
@@ -595,7 +595,7 @@ const footerMessages = [
           </div>
         </div>
         <div className="group">
-          <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
+          <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
             Higher Secondary (Class 12), Science  [2019-2021]
           </div>
           <div className={`text-sm italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
@@ -606,7 +606,7 @@ const footerMessages = [
           </div>
         </div>
         <div className="group">
-          <div className={`text-base font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
+          <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
             Secondary School Certificate (SSC – Class 10)  [2018-2019]
           </div>
           <div className={`text-sm italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
