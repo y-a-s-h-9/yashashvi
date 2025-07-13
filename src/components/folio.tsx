@@ -1092,7 +1092,7 @@ const footerMessages = [
                   </div>
                 </div>
               </div>
-              
+{/*               
            <div
   className={`col-span-12 md:col-span-6 transition-all duration-700 delay-400 ${
     isVisible.contact ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
@@ -1113,16 +1113,13 @@ const footerMessages = [
         
 
           try {
-            await fetch(
-              'https://script.google.com/macros/s/AKfycbzkiPCMWG6uP4rLgEMxkRovGB1aGL57vzgW5HinvxDnvt0h3dLkyzEfRZB9YvaMlfulDg/exec',
-              {
-                method: 'POST',
-                // mode: 'no-cors',
-                 
-  
-                body: JSON.stringify({ timestamp ,name, email, message }),
-              }
-            );  
+           await fetch('https://script.google.com/macros/s/AKfycbzstPv3Oq05zzbbLv_TN1_Dev4f7DWHUTSP6G6AvtHecyhsweofAS5GXcZYcy_wNoU3/exec', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ timestamp, name, email, message }),
+});
           form.reset();
   setMessageSent(true);
 } catch {
@@ -1191,7 +1188,7 @@ const footerMessages = [
 </button>
     </form>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
