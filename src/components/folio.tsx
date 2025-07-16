@@ -406,7 +406,7 @@ const footerMessages = [
                 
                 {/* Prominent Resume Button */}
             <a 
-  href="https://drive.google.com/file/d/1VH2Q2x-MvEp0mVcw8SCKh1ZLz7r4GZ4M/view?usp=sharing"
+  href="https://drive.google.com/file/d/1h1ZtNjEDDHonaTNvF85qt1JfGbRqedtV/view?usp=sharing"
   target="_blank" 
   rel="noopener noreferrer"
 >
