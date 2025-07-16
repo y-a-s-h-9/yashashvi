@@ -406,7 +406,7 @@ const footerMessages = [
                 
                 {/* Prominent Resume Button */}
             <a 
-  href="https://drive.google.com/file/d/1h1ZtNjEDDHonaTNvF85qt1JfGbRqedtV/view?usp=sharing"
+  href="https://drive.google.com/file/d/1lnDGbR0oB3sKHDxwcr6HN8m5rAV76kjE/view?usp=sharing"
   target="_blank" 
   rel="noopener noreferrer"
 >
@@ -1237,7 +1237,7 @@ const footerMessages = [
         {/* Right: Resume Button */}
         <div className="flex items-center gap-4">
         <a
-  href="https://drive.google.com/file/d/1h1ZtNjEDDHonaTNvF85qt1JfGbRqedtV/view?usp=sharing"
+  href="https://drive.google.com/file/d/1lnDGbR0oB3sKHDxwcr6HN8m5rAV76kjE/view?usp=sharing"
   target="_blank"
   rel="noopener noreferrer"
   className={`inline-block transition-all duration-300 hover:scale-105 ${
