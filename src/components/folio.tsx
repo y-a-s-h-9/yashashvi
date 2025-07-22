@@ -29,8 +29,8 @@ import {
   ArrowUpRight,
   Sun,
   Moon,
-  Check,
-  X,
+  // Check,
+  // X,
   FileText
 
 } from 'lucide-react';
@@ -82,7 +82,7 @@ const ScrollablePortfolio = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
   
   // const MessageEvent = new Event('messageSent');
-  const [messageSent, setMessageSent] = useState<true | false | null>(null);
+  // const [messageSent, setMessageSent] = useState<true | false | null>(null);
 
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
@@ -337,23 +337,26 @@ const footerMessages = [
 </div>
     {/* Name and phonetic together */}
     <div className="relative inline-block">
-      <h1 className={`text-8xl md:text-9xl font-thin tracking-tighter ${
-        isDarkMode ? 'text-white' : 'text-black'
-      }`}>
-        {'Yashashvi B'.split('').map((char, index) => (
-          <span 
-            key={index}
-            className="inline-block transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1"
-            style={{ 
-              animationDelay: `${index * 100}ms`,
-              transform: isVisible.hero ? 'translateY(0)' : 'translateY(20px)',
-              opacity: isVisible.hero ? 1 : 0
-            }}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </span>
-        ))}
-      </h1>
+      <h1
+  className={`text-8xl md:text-9xl font-thin tracking-tighter ${
+    isDarkMode ? 'text-white' : 'text-black'
+  }`}
+>
+  {'Yashashvi B'.split('').map((char, index) => (
+    <span
+      key={index}
+      className="inline-block mx-1 transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1"
+      style={{
+        animationDelay: `${index * 100}ms`,
+        transform: isVisible.hero ? 'translateY(0)' : 'translateY(20px)',
+        opacity: isVisible.hero ? 1 : 0,
+      }}
+    >
+      {char === ' ' ? '\u00A0' : char}
+    </span>
+  ))}
+</h1>
+
 
       {/* Phonetic spelling aligned to bottom-right of name */}
       <p className={`absolute -bottom-4 right-0 text-xs md:text-sm font-light italic ${
@@ -595,7 +598,7 @@ const footerMessages = [
         </div>
         <div className="group">
           <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
-            Higher Secondary (Class 12), Science  [2019-2021]
+            Higher Secondary Education (Class 12), Science  [2019-2021]
           </div>
           <div className={`text-sm italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
             Prathibha Junior College, Rajahmundry, India.
@@ -606,7 +609,7 @@ const footerMessages = [
         </div>
         <div className="group">
           <div className={`text-sm font-medium ${isDarkMode ? 'group-hover:text-white' : 'group-hover:text-black'}`}>
-            Secondary School Certificate (SSC – Class 10)  [2018-2019]
+            Secondary Education (SSC – Class 10)  [2018-2019]
           </div>
           <div className={`text-sm italic ${isDarkMode ? 'text-white' : 'text-black'}`}>
             Sri Gowthami Smart School, Rajahmundry, India.
@@ -1092,42 +1095,58 @@ const footerMessages = [
                   </div>
                 </div>
               </div>
-{/*               
+              
            <div
   className={`col-span-12 md:col-span-6 transition-all duration-700 delay-400 ${
     isVisible.contact ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
   }`}
 >
-                  <div className="space-y-6">
-    <form
-  className="space-y-6"
-        onSubmit={async (e) => {
-          e.preventDefault();
+                  {/* <div className="space-y-6">
+  <form
+      className="space-y-6"
+      onSubmit={async (e) => {
+        e.preventDefault();
 
-          const form = e.target as HTMLFormElement;
-          const timestamp = new Date().toISOString();
-          const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-          const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-          const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
-  
-        
+        const form = e.target as HTMLFormElement;
+        const timestamp = new Date().toISOString();
+        const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+        const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+        const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
 
-          try {
-           await fetch('https://script.google.com/macros/s/AKfycbzstPv3Oq05zzbbLv_TN1_Dev4f7DWHUTSP6G6AvtHecyhsweofAS5GXcZYcy_wNoU3/exec', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ timestamp, name, email, message }),
-});
+        try {
+          const response = await fetch('https://api.airtable.com/v0/appd1X2PATOZIBHOA/Mgs', {
+            method: 'POST',
+            headers: {
+              Authorization: 'Bearer patjzb69GmPT7VsT9.9b46441474f066dcee33924aed3e38231d1dbb15ce8a5320edbfe831f53677a2',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              fields: {
+                timestamp,
+                name,
+                email,
+                message,
+              },
+            }),
+          });
+
+          const data = await response.json();
+          console.log('Airtable response:', data);
+
+          if (!response.ok) {
+            throw new Error(`Airtable API error: ${response.status} ${JSON.stringify(data)}`);
+          }
+
           form.reset();
-  setMessageSent(true);
-} catch {
-  setMessageSent(false);
-} finally {
-  setTimeout(() => setMessageSent(null), 1000);
-}}}
->
+          setMessageSent(true);
+        } catch (error) {
+          console.error('Form submission failed:', error);
+          setMessageSent(false);
+        } finally {
+          setTimeout(() => setMessageSent(null), 2000);
+        }
+      }}
+    >
       <div className="space-y-4">
         <input
           type="text"
@@ -1163,32 +1182,33 @@ const footerMessages = [
           }`}
         />
       </div>
+
       <button
-  type="submit"
-  className={`text-sm tracking-wide transition-all duration-300 flex items-center gap-2 group hover:translate-x-1 ${
-    isDarkMode ? 'hover:text-neutral-300' : 'hover:text-neutral-600'
-  }`}
->
-  {messageSent === true ? (
-            <>
-               Sent <Check className={`w-4 h-4 ${isDarkMode ? 'text-white' : 'text-black'}`} />
-            </>
-          ) : messageSent === false ? (
-            <>
-              <span className={`text-base flex items-center gap-1 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-  Failed <X className={`w-4 h-4 ${isDarkMode ? 'text-white' : 'text-black'}`} />
-</span>
-            </>
-          ) : (
-            <>
-              Send Message
-              <ArrowUpRight className="w-4 h-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
-            </>
-          )}
-</button>
+        type="submit"
+        className={`text-sm tracking-wide transition-all duration-300 flex items-center gap-2 group hover:translate-x-1 ${
+          isDarkMode ? 'hover:text-neutral-300' : 'hover:text-neutral-600'
+        }`}
+      >
+        {messageSent === true ? (
+          <>
+            Sent <Check className={`w-4 h-4 ${isDarkMode ? 'text-white' : 'text-black'}`} />
+          </>
+        ) : messageSent === false ? (
+          <>
+            <span className={`text-base flex items-center gap-1 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+              Failed <X className={`w-4 h-4 ${isDarkMode ? 'text-white' : 'text-black'}`} />
+            </span>
+          </>
+        ) : (
+          <>
+            Send Message
+            <ArrowUpRight className="w-4 h-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
+          </>
+        )}
+      </button>
     </form>
-                </div>
-              </div> */}
+                </div> */}
+              </div>
             </div>
           </div>
         </section>
