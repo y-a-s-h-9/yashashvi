@@ -345,7 +345,8 @@ const footerMessages = [
   {'Yashashvi B'.split('').map((char, index) => (
     <span
       key={index}
-      className="inline-block mx-1 transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1"
+      className="inline-block mx-1 transition-all duration-500 ease-out hover:scale-110 hover:-translate-y-1
+"
       style={{
         animationDelay: `${index * 100}ms`,
         transform: isVisible.hero ? 'translateY(0)' : 'translateY(20px)',
@@ -409,7 +410,7 @@ const footerMessages = [
                 
                 {/* Prominent Resume Button */}
             <a 
-  href="https://drive.google.com/file/d/11-w95XlH2_txKfUwlDuriON2_yuuBKGe/view?usp=sharing"
+  href="https://drive.google.com/file/d/1Bctj8LK9-LzTlBG5IzEVtpZQ5g_WwN7I/view?usp=sharing"
   target="_blank" 
   rel="noopener noreferrer"
 >
@@ -453,8 +454,10 @@ const footerMessages = [
     </div>
   </button>
 </a>
+
              
             </div>
+            
           </div>
 
         </section>
@@ -547,12 +550,24 @@ const footerMessages = [
       year: '2021-2023',
       description: 'Led design efforts and team coordination at KL Radio, with a high success rate in idea execution and audience engagement.'
     },
+    // {
+    //   role: 'Student Volunteer',
+    //   company: 'SafeLifeAP X UNICEF',
+    //   year: 'Sept 2022',
+    //   description: 'Volunteered for a UNICEF event in second year, supporting event coordination and student engagement.'
+    // },
+    //  {
+    //   role: 'Summer Intern',
+    //   company: 'KL Sac-Social Internship',
+    //   year: 'May 2022 - June 2022',
+    //   description: 'Conducted village visits to identify and report key local issues, helping drive actionable responses by community leaders.'
+    // },
     {
       role: 'Project Member',
       company: '25th & 24th National Children Science Congress',
       year: '2016-2018',
       description: 'Contributed to national-level science projects focused on community impact.'
-    }
+    },
   ].map((job, index) => (
     <div key={index} className="group">
       <div className={`flex justify-between py-2 border-b ${
@@ -1257,7 +1272,7 @@ const footerMessages = [
         {/* Right: Resume Button */}
         <div className="flex items-center gap-4">
         <a
-  href="https://drive.google.com/file/d/11-w95XlH2_txKfUwlDuriON2_yuuBKGe/view?usp=sharing"
+  href="https://drive.google.com/file/d/1Bctj8LK9-LzTlBG5IzEVtpZQ5g_WwN7I/view?usp=sharing"
   target="_blank"
   rel="noopener noreferrer"
   className={`inline-block transition-all duration-300 hover:scale-105 ${
